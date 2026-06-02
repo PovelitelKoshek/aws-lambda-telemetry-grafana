@@ -1,0 +1,5 @@
+*.zip
+bootstrap
+*.pem
+.env
+.env.*
