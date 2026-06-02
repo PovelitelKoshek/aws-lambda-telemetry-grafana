@@ -7,9 +7,9 @@ The main architecture is:
 ```
 AWS Lambda on Go
    ↓ OTLP / HTTP
-EC2 Free Tier with Grafana Alloy
+EC2 Tier with Grafana Alloy
    ↓
-Grafana Cloud Free
+Grafana Cloud
    ↓
 Grafana Dashboard
 ```
