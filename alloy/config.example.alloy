@@ -1,0 +1,23 @@
+otelcol.receiver.otlp "lambda" {
+  http {
+    endpoint = "0.0.0.0:4318"
+  }
+
+  grpc {
+    endpoint = "0.0.0.0:4317"
+  }
+
+  output {
+    metrics = [otelcol.processor.batch.lambda.input]
+  }
+}
+
+otelcol.processor.batch "lambda" {
+  output {
+    metrics = [otelcol.exporter.prometheus.lambda.input]
+  }
+}
+
+otelcol.exporter.prometheus "lambda" {
+  forward_to = [prometheus.remote_write.metrics_service.receiver]
+}
